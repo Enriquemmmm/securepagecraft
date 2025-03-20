@@ -65,19 +65,10 @@ export default {
 				},
 				sphinx: {
 					orange: '#f26323',
-					black: '#121212',        // Updated to match dark mode primary background
-					darkGray: '#1E1E1E',     // Updated to match dark mode secondary background
-					lightGray: '#E0E0E0',    // Updated to match dark mode body text
+					black: '#0F0F0F',
+					darkGray: '#222222',
+					lightGray: '#F5F5F7',
 					white: '#FFFFFF',
-				},
-				dark: {
-					background: '#121212',
-					surface: '#1E1E1E',
-					text: '#E0E0E0',
-					headers: '#FFFFFF',
-					accent: '#7B61FF',       // Vibrant purple as accent color
-					hover: '#2A2A2A',
-					card: '#252525',
 				}
 			},
 			borderRadius: {
@@ -145,14 +136,6 @@ export default {
 					'50%': { 
 						transform: 'translateY(-5px)' 
 					},
-				},
-				'glow': {
-					'0%, 100%': { 
-						boxShadow: '0 0 0 rgba(123, 97, 255, 0)' 
-					},
-					'50%': { 
-						boxShadow: '0 0 12px rgba(123, 97, 255, 0.5)' 
-					},
 				}
 			},
 			animation: {
@@ -161,8 +144,7 @@ export default {
 				'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
 				'fade-in': 'fade-in 0.6s ease-out forwards',
 				'scale-in': 'scale-in 0.4s ease-out forwards',
-				'float': 'float 6s ease-in-out infinite',
-				'glow': 'glow 3s ease-in-out infinite'
+				'float': 'float 6s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -174,14 +156,7 @@ export default {
 			transitionTimingFunction: {
         'in-expo': 'cubic-bezier(0.95, 0.05, 0.795, 0.035)',
         'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
-      },
-			boxShadow: {
-				'dark-sm': '0 1px 2px 0 rgba(0, 0, 0, 0.4)',
-				'dark-md': '0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.4)',
-				'dark-lg': '0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 0.5)',
-				'dark-xl': '0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 10px 10px -5px rgba(0, 0, 0, 0.6)',
-				'dark-accent': '0 4px 12px -1px rgba(123, 97, 255, 0.2), 0 2px 6px -1px rgba(123, 97, 255, 0.1)',
-			}
+      }
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
