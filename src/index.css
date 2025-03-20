@@ -44,11 +44,11 @@
   
   html {
     scroll-behavior: smooth;
-    @apply font-sans antialiased;
+    @apply font-sans antialiased bg-dark-background text-dark-text;
   }
   
   body {
-    @apply bg-background text-foreground;
+    @apply bg-dark-background text-dark-text;
   }
   
   ::selection {
@@ -65,6 +65,20 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-dark-headers;
+  }
+
+  /* Modern card design */
+  .dark-card {
+    @apply bg-dark-card rounded-xl shadow-dark-md border border-white/5 transition-all duration-300 hover:shadow-dark-lg;
+  }
+
+  /* Custom inputs for dark mode */
+  input, textarea, select {
+    @apply bg-dark-surface border-white/10 text-dark-text rounded-lg focus:border-dark-accent focus:ring-1 focus:ring-dark-accent focus:outline-none transition-all duration-300;
+  }
 }
 
 @layer components {
@@ -73,7 +87,7 @@
   }
   
   .badge {
-    @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-sphinx-orange/10 text-sphinx-orange mb-4;
+    @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-dark-accent/20 text-dark-accent mb-4;
   }
   
   .heading-xl {
@@ -93,15 +107,15 @@
   }
   
   .button-primary {
-    @apply bg-sphinx-orange text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:translate-y-[-2px] shadow-lg hover:shadow-xl hover:shadow-sphinx-orange/20 active:translate-y-0;
+    @apply bg-dark-accent text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:translate-y-[-2px] shadow-dark-accent active:translate-y-0;
   }
   
   .button-secondary {
-    @apply bg-white text-sphinx-black border border-sphinx-black/10 px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-sphinx-black hover:text-white hover:translate-y-[-2px] active:translate-y-0;
+    @apply bg-dark-surface text-dark-text border border-white/10 px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-dark-hover hover:border-dark-accent/30 hover:translate-y-[-2px] active:translate-y-0;
   }
   
   .glass-card {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-lg;
+    @apply bg-dark-surface/80 backdrop-blur-md border border-white/5 shadow-dark-md;
   }
   
   .appear-animated {
@@ -110,5 +124,22 @@
   
   .appear-animated.in-viewport {
     @apply animate-fade-in-up;
+  }
+
+  /* Dark mode specific components */
+  .dark-gradient {
+    @apply bg-gradient-to-b from-dark-background to-dark-surface;
+  }
+  
+  .dark-glow {
+    @apply animate-glow;
+  }
+  
+  .dark-divider {
+    @apply border-t border-white/5 my-8;
+  }
+  
+  .dark-nav {
+    @apply bg-dark-surface/80 backdrop-blur-lg border-b border-white/5;
   }
 }

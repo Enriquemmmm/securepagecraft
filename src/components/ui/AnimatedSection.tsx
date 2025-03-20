@@ -6,12 +6,14 @@ interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
+  animation?: 'fade' | 'slide' | 'scale';
 }
 
 const AnimatedSection: React.FC<AnimatedSectionProps> = ({ 
   children, 
   className,
-  delay = 0
+  delay = 0,
+  animation = 'fade'
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -44,12 +46,30 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
     };
   }, [delay]);
 
+  const getAnimationClasses = () => {
+    switch (animation) {
+      case 'slide':
+        return isVisible 
+          ? 'opacity-100 translate-x-0' 
+          : 'opacity-0 -translate-x-10';
+      case 'scale':
+        return isVisible 
+          ? 'opacity-100 scale-100' 
+          : 'opacity-0 scale-95';
+      case 'fade':
+      default:
+        return isVisible 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 translate-y-10';
+    }
+  };
+
   return (
     <div
       ref={ref}
       className={cn(
-        'opacity-0 transition-all duration-1000 ease-out-expo',
-        isVisible ? 'opacity-100 translate-y-0' : 'translate-y-10',
+        'transition-all duration-1000 ease-out-expo',
+        getAnimationClasses(),
         className
       )}
     >
